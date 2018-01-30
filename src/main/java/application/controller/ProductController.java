@@ -55,44 +55,8 @@ public class ProductController {
     };
 
 
-    @GetMapping(path = "/product")
+    @GetMapping(path = "/product-details")
     public String product(Model model) {
-        ArrayList<HomePage> newProductList = new ArrayList<>();
-        Random random = new Random();
-
-        ArrayList<HomePage> slideImageList1 = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            HomePage slide1 = new HomePage();
-            slide1.setSlideImage(slideImage1[random.nextInt(slideImage1.length)]);
-            slideImageList1.add(slide1);
-        }
-
-        ArrayList<HomePage> slideImageList2 = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            HomePage slide2 = new HomePage();
-            slide2.setSlideImage(slideImage2[random.nextInt(slideImage2.length)]);
-            slideImageList2.add(slide2);
-        }
-
-        ArrayList<HomePage> slideImageList3 = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            HomePage slide3 = new HomePage();
-            slide3.setSlideImage(slideImage3[random.nextInt(slideImage3.length)]);
-            slideImageList3.add(slide3);
-        }
-
-        ArrayList<HomePage> navMenuList = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            HomePage navMenu1 = new HomePage();
-            navMenu1.setMenuName(navMenuName[random.nextInt(navMenuName.length)]);
-            navMenu1.setMenuLink(navMenuLink[random.nextInt(navMenuLink.length)]);
-        }
-
-        model.addAttribute("newProductList", newProductList);
-        model.addAttribute("slideImageList1", slideImageList1);
-        model.addAttribute("slideImageList2", slideImageList2);
-        model.addAttribute("slideImageList3", slideImageList3);
-        model.addAttribute("navMenuList", navMenuList);
         return "product";
     }
 }
