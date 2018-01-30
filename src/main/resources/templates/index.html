@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>REDmarket</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/vendor/animate/animate.min.css}">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}">
+    <script th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+    <script th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn sidenav-hide-icon" onclick="closeNav()">&times;</a>
+
+    <a href="#" class="sidenav-show-icon"><img
+            src="http://www.albanywoodworks.com/wp-content/uploads/2015/08/home-5-xxl.png" alt=""></a>
+    <a href="#" class="sidenav-hide-icon"><img
+            src="http://www.albanywoodworks.com/wp-content/uploads/2015/08/home-5-xxl.png" alt="">
+        <p>Home Side</p></a>
+
+    <a href="#" class="sidenav-show-icon"><img src="http://www.belatrixsf.com/img/agile-icon-mobile.png" alt=""></a>
+    <a href="#" class="sidenav-hide-icon"><img src="http://www.belatrixsf.com/img/agile-icon-mobile.png" alt="">
+        <p>Phone Side</p></a>
+
+    <a href="#" class="sidenav-show-icon"><img
+            src="http://sachinchoolur.github.io/lightGallery/static/img/icons/touch-w.png" alt=""></a>
+    <a href="#" class="sidenav-hide-icon"><img
+            src="http://sachinchoolur.github.io/lightGallery/static/img/icons/touch-w.png" alt="">
+        <p>Tablet Side</p></a>
+
+    <a href="#" class="sidenav-show-icon"><img
+            src="http://contenidos.ceoe.es/CEOE-EN/var/pool/images/ceoe_temas_colores-icon-4-magenta-infraestructura-transportes.png"
+            alt=""></a>
+    <a href="#" class="sidenav-hide-icon"><img
+            src="http://contenidos.ceoe.es/CEOE-EN/var/pool/images/ceoe_temas_colores-icon-4-magenta-infraestructura-transportes.png"
+            alt="">
+        <p>Laptop Side</p></a>
+
+    <a href="#" class="sidenav-show-icon"><img
+            src="https://www.materialui.co/materialIcons/hardware/desktop_windows_white_192x192.png" alt=""></a>
+    <a href="#" class="sidenav-hide-icon"><img
+            src="https://www.materialui.co/materialIcons/hardware/desktop_windows_white_192x192.png" alt="">
+        <p>Desktop Side</p></a>
+
+</div>
+<header id="header">
+    <nav class="navbar navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span id="sidenav-open" onclick="openNav()">&#9776; Menu</span>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Phone</a></li>
+                    <li><a href="#">Tablet</a></li>
+                    <li><a href="#">Laptop</a></li>
+                    <li><a href="#">Desktop</a></li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div id="main">
+    <section class="col-md-8">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <th:block th:each="slideImage1, iter : ${slideImageList1}">
+                    <div class="item active" th:if="${iter.index == 0}">
+                        <img th:src="${slideImage1.getSlideImage()}" style="width:100%;">
+                    </div>
+
+                    <div class="item" th:if="${not (iter.index == 0)}">
+                        <img th:src="${slideImage1.getSlideImage()}" style="width:100%;">
+                    </div>
+
+                </th:block>
+            </div>
+
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </section>
+    <section class="col-md-4">
+        <div id="myCarousel-1" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <th:block th:each="slideImage2, iter : ${slideImageList2}">
+                    <div class="item active" th:if="${iter.index == 0}">
+                        <img th:src="${slideImage2.getSlideImage()}" style="width:100%;">
+                    </div>
+
+                    <div class="item" th:if="${not (iter.index == 0)}">
+                        <img th:src="${slideImage2.getSlideImage()}" style="width:100%;">
+                    </div>
+
+                </th:block>
+            </div>
+        </div>
+        <div id="myCarousel-2" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <th:block th:each="slideImage3, iter : ${slideImageList3}">
+                    <div class="item active" th:if="${iter.index == 0}">
+                        <img th:src="${slideImage3.getSlideImage()}" style="width:100%;">
+                    </div>
+
+                    <div class="item" th:if="${not (iter.index == 0)}">
+                        <img th:src="${slideImage3.getSlideImage()}" style="width:100%;">
+                    </div>
+
+                </th:block>
+
+            </div>
+        </div>
+    </section>
+    <section class="clearfix product">
+        <h1>Product List</h1>
+        <ul class="menu-item">
+            <li class="col-md-3" th:each="i : ${newProductList}">
+                <a href="#"><img th:src="${i.getImage()}">
+                    <p th:text="${i.getProductName()}"></p>
+                    <p th:text="${i.getPrice()}"></p></a>
+                <button type="button" class="btn btn-danger">Add to cart</button>
+            </li>
+        </ul>
+    </section>
+</div>
+
+<script th:src="@{/js/sideNav.js}"></script>
+<script th:src="@{/js/animate.js}"></script>
+</body>
+</html>
