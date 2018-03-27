@@ -2,109 +2,42 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>REDmarket</title>
+    <title>Emark</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/vendor/fontawesome/fontawesome.css}">
     <link rel="stylesheet" th:href="@{/vendor/animate/animate.min.css}">
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}">
-    <script th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
-    <script th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
     <link rel="stylesheet" th:href="@{/css/index.css}">
 </head>
 <body>
+<div th:replace="fragments/sidenav :: sidenav_frag (vm=${vm})"></div>
+<div th:replace="fragments/navbar :: navbar_frag (vm = ${vm})"></div>
 
-<div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn sidenav-hide-icon" onclick="closeNav()">&times;</a>
-
-    <a href="#" class="sidenav-show-icon"><img
-            src="http://www.albanywoodworks.com/wp-content/uploads/2015/08/home-5-xxl.png" alt=""></a>
-    <a href="#" class="sidenav-hide-icon"><img
-            src="http://www.albanywoodworks.com/wp-content/uploads/2015/08/home-5-xxl.png" alt="">
-        <p>Home Side</p></a>
-
-    <a href="#" class="sidenav-show-icon"><img src="http://www.belatrixsf.com/img/agile-icon-mobile.png" alt=""></a>
-    <a href="#" class="sidenav-hide-icon"><img src="http://www.belatrixsf.com/img/agile-icon-mobile.png" alt="">
-        <p>Phone Side</p></a>
-
-    <a href="#" class="sidenav-show-icon"><img
-            src="http://sachinchoolur.github.io/lightGallery/static/img/icons/touch-w.png" alt=""></a>
-    <a href="#" class="sidenav-hide-icon"><img
-            src="http://sachinchoolur.github.io/lightGallery/static/img/icons/touch-w.png" alt="">
-        <p>Tablet Side</p></a>
-
-    <a href="#" class="sidenav-show-icon"><img
-            src="http://contenidos.ceoe.es/CEOE-EN/var/pool/images/ceoe_temas_colores-icon-4-magenta-infraestructura-transportes.png"
-            alt=""></a>
-    <a href="#" class="sidenav-hide-icon"><img
-            src="http://contenidos.ceoe.es/CEOE-EN/var/pool/images/ceoe_temas_colores-icon-4-magenta-infraestructura-transportes.png"
-            alt="">
-        <p>Laptop Side</p></a>
-
-    <a href="#" class="sidenav-show-icon"><img
-            src="https://www.materialui.co/materialIcons/hardware/desktop_windows_white_192x192.png" alt=""></a>
-    <a href="#" class="sidenav-hide-icon"><img
-            src="https://www.materialui.co/materialIcons/hardware/desktop_windows_white_192x192.png" alt="">
-        <p>Desktop Side</p></a>
-
-</div>
-<header id="header">
-    <nav class="navbar navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <span id="sidenav-open" onclick="openNav()">&#9776; Menu</span>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Phone</a></li>
-                    <li><a href="#">Tablet</a></li>
-                    <li><a href="#">Laptop</a></li>
-                    <li><a href="#">Desktop</a></li>
-                </ul>
-                <form class="navbar-form navbar-left">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                        <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit">
-                                <i class="glyphicon glyphicon-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
-<div id="main">
-    <section class="col-md-8">
+<div id="main" class="clearfix">
+    <section class="col-md-8" style="padding-right: inherit">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <th:block th:each="banner,iter : ${vm.getBanner1()}">
+                    <li data-target="#myCarousel" th:if="${iter.index == 0}" th:attr="data-slide-to=${iter.index}" class="active"></li>
+                    <li data-target="#myCarousel" th:unless="${iter.index == 0}" th:attr="data-slide-to=${iter.index}"></li>
+                </th:block>
             </ol>
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
-                <th:block th:each="slideImage1, iter : ${slideImageList1}">
+                <th:block th:each="banner1, iter : ${vm.getBanner1()}">
                     <div class="item active" th:if="${iter.index == 0}">
-                        <img th:src="${slideImage1.getSlideImage()}" style="width:100%;">
+                        <img th:src="${banner1.getImageUrl()}" style="width:100%;">
                     </div>
 
                     <div class="item" th:if="${not (iter.index == 0)}">
-                        <img th:src="${slideImage1.getSlideImage()}" style="width:100%;">
+                        <img th:src="${banner1.getImageUrl()}" style="width:100%;">
                     </div>
 
                 </th:block>
+
             </div>
 
             <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -117,22 +50,23 @@
             </a>
         </div>
     </section>
-    <section class="col-md-4">
+    <section class="col-md-4" style="padding-right: inherit">
         <div id="myCarousel-1" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
-                <th:block th:each="slideImage2, iter : ${slideImageList2}">
+                <th:block th:each="banner2, iter : ${vm.getBanner2()}">
                     <div class="item active" th:if="${iter.index == 0}">
-                        <img th:src="${slideImage2.getSlideImage()}" style="width:100%;">
+                        <img th:src="${banner2.getImageUrl()}" style="width:100%;">
                     </div>
 
                     <div class="item" th:if="${not (iter.index == 0)}">
-                        <img th:src="${slideImage2.getSlideImage()}" style="width:100%;">
+                        <img th:src="${banner2.getImageUrl()}" style="width:100%;">
                     </div>
 
                 </th:block>
+
             </div>
         </div>
         <div id="myCarousel-2" class="carousel slide" data-ride="carousel">
@@ -140,13 +74,13 @@
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
-                <th:block th:each="slideImage3, iter : ${slideImageList3}">
+                <th:block th:each="banner3, iter : ${vm.getBanner3()}">
                     <div class="item active" th:if="${iter.index == 0}">
-                        <img th:src="${slideImage3.getSlideImage()}" style="width:100%;">
+                        <img th:src="${banner3.getImageUrl()}" style="width:100%;">
                     </div>
 
                     <div class="item" th:if="${not (iter.index == 0)}">
-                        <img th:src="${slideImage3.getSlideImage()}" style="width:100%;">
+                        <img th:src="${banner3.getImageUrl()}" style="width:100%;">
                     </div>
 
                 </th:block>
@@ -154,20 +88,227 @@
             </div>
         </div>
     </section>
-    <section class="clearfix product">
-        <h1>Product List</h1>
-        <ul class="menu-item">
-            <li class="col-md-3" th:each="i : ${newProductList}">
-                <a href="#"><img th:src="${i.getImage()}">
-                    <p th:text="${i.getProductName()}"></p>
-                    <p th:text="${i.getPrice()}"></p></a>
-                <button type="button" class="btn btn-danger">Add to cart</button>
-            </li>
-        </ul>
+    <section class="hot-product clearfix" id="hot-product">
+        <div class="hot-product__inner clearfix">
+            <div class="hot-product__header">
+                <h3>Sản phẩm bán chạy</h3>
+            </div>
+            <div class="hot-product__content">
+                <ul class="menu-item">
+                    <div class="items col-md-3" th:each="product : ${vm.getListHotProducts()}">
+                        <a href="#">
+                            <li>
+                                <div class="item-overlay">
+                                    <img th:src="${product.getImage()}">
+                                    <div class="overlay">
+                                        <div class="overlay-text">
+                                            <ul style="list-style-type: hiragana">
+                                                <li><p>Display: LED-backlit IPS LCD, 5.5", Retina HD</p></li>
+                                                <li>Operating System: IOS 11</li>
+                                                <li>Camera: 12 MP with OIS</li>
+                                                <li>CPU: Apple A11 Bionic</li>
+                                                <li>RAM: 3GB</li>
+                                                <li>ROM: 128GB</li>
+                                                <li>Battery: 2800mAh</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p th:text="${product.getName()}"></p>
+                                <p th:text="${product.getPrice()}"></p>
+                                <button type="button" class="btn btn-danger">Add to cart</button>
+                            </li>
+                        </a>
+                    </div>
+                </ul>
+            </div>
+        </div>
     </section>
+    <section class="hot-product clearfix" id="hot-phone">
+        <div class="hot-product__inner clearfix">
+            <div class="hot-product__header">
+                <h3>Điện thoại nổi bật</h3>
+            </div>
+            <div class="hot-product__content">
+                <ul class="menu-item">
+                    <div class="items col-md-3" th:each="phone : ${vm.getListHotPhones()}">
+                        <a href="#">
+                            <li>
+                                <div class="item-overlay">
+                                    <img th:src="${phone.getImage()}">
+                                    <div class="overlay">
+                                        <div class="overlay-text">
+                                            <ul style="list-style-type: hiragana">
+                                                <li><p>Display: LED-backlit IPS LCD, 5.5", Retina HD</p></li>
+                                                <li>Operating System: IOS 11</li>
+                                                <li>Camera: 12 MP with OIS</li>
+                                                <li>CPU: Apple A11 Bionic</li>
+                                                <li>RAM: 3GB</li>
+                                                <li>ROM: 128GB</li>
+                                                <li>Battery: 2800mAh</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p th:text="${phone.getName()}"></p>
+                                <p th:text="${phone.getPrice()}"></p>
+                                <button type="button" class="btn btn-danger">Add to cart</button>
+                            </li>
+                        </a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="hot-product clearfix" id="hot-tablet">
+        <div class="hot-product__inner clearfix">
+            <div class="hot-product__header">
+                <h3>Máy tính bảng nổi bật</h3>
+            </div>
+            <div class="hot-product__content">
+                <ul class="menu-item">
+                    <div class="items col-md-3" th:each="tablet : ${vm.getListHotTablets()}">
+                        <a href="#">
+                            <li>
+                                <div class="item-overlay">
+                                    <img th:src="${tablet.getImage()}">
+                                    <div class="overlay">
+                                        <div class="overlay-text">
+                                            <ul style="list-style-type: hiragana">
+                                                <li><p>Display: LED-backlit IPS LCD, 5.5", Retina HD</p></li>
+                                                <li>Operating System: IOS 11</li>
+                                                <li>Camera: 12 MP with OIS</li>
+                                                <li>CPU: Apple A11 Bionic</li>
+                                                <li>RAM: 3GB</li>
+                                                <li>ROM: 128GB</li>
+                                                <li>Battery: 2800mAh</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p th:text="${tablet.getName()}"></p>
+                                <p th:text="${tablet.getPrice()}"></p>
+                                <button type="button" class="btn btn-danger">Add to cart</button>
+                            </li>
+                        </a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="hot-product clearfix" id="hot-laptop">
+        <div class="hot-product__inner clearfix">
+            <div class="hot-product__header">
+                <h3>Laptop bán chạy</h3>
+            </div>
+            <div class="hot-product__content">
+                <ul class="menu-item">
+                    <div class="items col-md-3" th:each="laptop : ${vm.getListHotLaptops()}">
+                        <a href="#">
+                            <li>
+                                <div class="item-overlay">
+                                    <img th:src="${laptop.getImage()}">
+                                    <div class="overlay">
+                                        <div class="overlay-text">
+                                            <ul style="list-style-type: hiragana">
+                                                <li><p>Display: LED-backlit IPS LCD, 5.5", Retina HD</p></li>
+                                                <li>Operating System: IOS 11</li>
+                                                <li>Camera: 12 MP with OIS</li>
+                                                <li>CPU: Apple A11 Bionic</li>
+                                                <li>RAM: 3GB</li>
+                                                <li>ROM: 128GB</li>
+                                                <li>Battery: 2800mAh</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p th:text="${laptop.getName()}"></p>
+                                <p th:text="${laptop.getPrice()}"></p>
+                                <button type="button" class="btn btn-danger">Add to cart</button>
+                            </li>
+                        </a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="hot-product clearfix" id="hot-accessory">
+        <div class="hot-product__inner clearfix">
+            <div class="hot-product__header">
+                <h3>Phụ kiện hot</h3>
+            </div>
+            <div class="hot-product__content">
+                <ul class="menu-item">
+                    <div class="items col-md-3" th:each="accessory : ${vm.getListHotAccessories()}">
+                        <a href="#">
+                            <li>
+                                <div class="item-overlay">
+                                    <img th:src="${accessory.getImage()}">
+                                    <div class="overlay">
+                                        <div class="overlay-text">
+                                            <ul style="list-style-type: hiragana">
+                                                <li><p>Display: LED-backlit IPS LCD, 5.5", Retina HD</p></li>
+                                                <li>Operating System: IOS 11</li>
+                                                <li>Camera: 12 MP with OIS</li>
+                                                <li>CPU: Apple A11 Bionic</li>
+                                                <li>RAM: 3GB</li>
+                                                <li>ROM: 128GB</li>
+                                                <li>Battery: 2800mAh</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p th:text="${accessory.getName()}"></p>
+                                <p th:text="${accessory.getPrice()}"></p>
+                                <button type="button" class="btn btn-danger">Add to cart</button>
+                            </li>
+                        </a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <div th:replace="fragments/footer :: footer_frag (vm=${vm})"></div>
+    <div id="modal">
+        <div class="cont_centrar">
+            <div class="cont_login">
+                <form action="">
+                    <div class="cont_tabs_login">
+                        <ul class="ul_tabs clearfix">
+                            <li class="active"><a href="#" onclick="sign_in()">SIGN IN</a>
+                                <span class="linea_bajo_nom"></span>
+                            </li>
+                            <li><a href="#" onclick="sign_up()">SIGN UP</a><span class="linea_bajo_nom"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="cont_text_inputs">
+                        <input type="text" class="input_form_sign " placeholder="NAME" name="name_us"/>
+                        <input type="text" class="input_form_sign d_block active_inp" placeholder="EMAIL"
+                               name="emauil_us"/>
+                        <input type="password" class="input_form_sign d_block  active_inp" placeholder="PASSWORD"
+                               name="pass_us"/>
+                        <input type="password" class="input_form_sign" placeholder="CONFIRM PASSWORD"
+                               name="conf_pass_us"/>
+                        <a href="#" class="link_forgot_pass d_block">Forgot Password ?</a>
+                        <div class="terms_and_cons d_none">
+                            <p><input class="term-check" type="checkbox" name="terms_and_cons"/> <label>Accept Terms and
+                                Conditions.</label></p>
+                        </div>
+                    </div>
+                    <div class="cont_btn">
+                        <button class="btn_sign">SIGN IN</button>
+                    </div>
+                </form>
+                <span id="cont_close">x</span>
+            </div>
+        </div>
+    </div>
 </div>
-
+<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
 <script th:src="@{/js/sideNav.js}"></script>
 <script th:src="@{/js/animate.js}"></script>
+<script th:src="@{/js/login.js}"></script>
 </body>
 </html>

@@ -1,151 +1,95 @@
-body {
-    font-family: "Segoe UI" !important;
-    overflow-x: hidden !important;
-    background-color: #ffffff;
-}
-
-.clearfix {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-#main {
-    transition: margin-left .5s;
-    position: relative;
-    top: 55px;
-    left: 50px;
-    margin-right: 50px;
-}
-
-#header nav {
-    background-color: #d70018;
-    border: none !important;
-    box-shadow: 0px 1px 5px 0px #888;
-}
-
-a {
-    color: #ffffff;
-}
-
-ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-#myNavbar li {
-    padding: 0 8px;
-}
-
-.input-group {
-    width: 500px;
-}
-
-.sidenav {
-    height: 100%;
-    width: 50px;
-    position: fixed;
-    z-index: 1;
-    top: 55px;
-    left: 0;
-    background-color: #d70018;
-    overflow: hidden;
-    transition: 0s;
-    padding-top: 60px;
-}
-
-.sidenav p {
-    display: inline;
-    padding-left: 10px;
-    vertical-align: bottom;
-    font-size: 22px;
-}
-
-.sidenav-show-icon img {
-    max-width: 40px;
-    padding-left: 10px;
-    padding-bottom: 55px;
-}
-
-.sidenav-hide-icon img {
-    max-width: 40px;
-    /*padding-left: 10px;*/
-}
-
-.sidenav-hide-icon {
-    padding: 8px 8px 50px 8px;
-    text-decoration: none;
-    font-size: 18px;
-    color: #ffffff;
-    display: none;
-    transition: 0s;
-}
-
-.sidenav-hide-icon:hover {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-.sidenav a:first-child {
-    padding: 0;
-}
-
-.sidenav a:first-child:hover {
-    background-color: #d70018;
-    color: #ffffff;
-    text-decoration: none;
-    padding: 0;
-}
-
-#sidenav-open {
-    font-size: 30px;
-    color: #ffffff;
-    cursor: pointer;
-}
 
 #myCarousel-2 {
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
-.product {
-    width: 100%;
-    text-align: center;
+.items{
+    border-right: 1px solid #eeeeee;
+    padding: 20px 0;
 }
-
-.menu-item li {
-    float: left;
-    width: 25%;
-    padding: 15px 0;
+.items li {
+    margin: auto;
+    width: 80%;
     transition: 0.5s ease;
 }
 
-.menu-item li:hover {
+.items li:hover {
     box-shadow: 1px 1px 1px 1px #d1d1d1;
-    opacity: 0.6;
 }
 
-.menu-item img {
+.items img {
     max-width: 180px;
 }
 
-.menu-item a {
+.items a {
     color: #333;
 }
 
-.menu-item a:hover {
+.items a:hover {
     text-decoration: none;
 }
 
-.menu-item button {
-    border-radius: 0px;
+.items button {
+    border-radius: 0;
     width: 50%;
 }
+.item-overlay{
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #333333;
+    opacity: 0.7;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+}
+
+.item-overlay:hover .overlay {
+    height: 100%;
+}
+
+.overlay-text {
+    color: white;
+    font-size: 11px;
+    position: absolute;
+}
+.overlay-text li{
+    box-shadow: none !important;
+}
+/* --------------Hot product----------*/
+.hot-product{
+    width: 100%;
+    padding-top: 25px;
+}
+.hot-product__inner{
+    width: 100%;
+    margin-left: 15px;
+    border: 1px solid #eeeeee;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.03);
+}
+.hot-product__header{
+    border-bottom: 1px solid #eeeeee;
+}
+.hot-product__header h3{
+    margin: 0;
+    padding: 10px 30px 15px 20px;
+    display: inline-block;
+    background: #f7f7f7 url("https://cellphones.com.vn/skin/frontend/default/cpsdesktop/images/heading-bg.jpg") top right no-repeat;
+}
+.hot-product__content{
+    width: 100%;
+    text-align: center;
+}
+.hot-product__content ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+/*----------Hot phone-------------*/

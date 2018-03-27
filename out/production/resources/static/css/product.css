@@ -1,116 +1,9 @@
-body {
-    font-family: "Segoe UI" !important;
-    overflow-x: hidden !important;
-    background-color: #ffffff;
+.body-content{
+    width: 100%;
+    background-color: #FFFFFF;
+    margin-left: 15px;
 }
-
-.clearfix {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-#main {
-    transition: margin-left .5s;
-    position: relative;
-    top: 55px;
-    left: 50px;
-    margin-right: 50px;
-}
-
-#header nav {
-    background-color: #d70018;
-    border: none;
-}
-
-a {
-    color: #f1f1f1;
-}
-
-ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-#myNavbar li {
-    padding: 0 8px;
-}
-
-.input-group {
-    width: 500px;
-}
-
-.sidenav {
-    height: 100%;
-    width: 50px;
-    position: fixed;
-    z-index: 1;
-    top: 55px;
-    left: 0;
-    background-color: #d70018;
-    overflow: hidden;
-    transition: 0s;
-    padding-top: 60px;
-}
-
-.sidenav p {
-    display: inline;
-    padding-left: 10px;
-    vertical-align: bottom;
-    font-size: 22px;
-}
-
-.sidenav-show-icon img {
-    max-width: 40px;
-    padding-left: 10px;
-    padding-bottom: 55px;
-}
-
-.sidenav-hide-icon img {
-    max-width: 40px;
-    /*padding-left: 10px;*/
-}
-
-.sidenav-hide-icon {
-    padding: 8px 8px 50px 8px;
-    text-decoration: none;
-    font-size: 18px;
-    color: #f1f1f1;
-    display: none;
-    transition: 0s;
-}
-
-.sidenav-hide-icon:hover {
-    color: white;
-    text-decoration: none;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-.sidenav a:first-child {
-    padding: 0;
-}
-
-.sidenav a:first-child:hover {
-    background-color: #d70018;
-    color: white;
-    text-decoration: none;
-    padding: 0;
-}
-
-#sidenav-open {
-    font-size: 30px;
-    color: #f1f1f1;
-    cursor: pointer;
-}
-
+/*------link list-------*/
 .link-list ul {
     width: 95%;
     margin: auto;
@@ -140,7 +33,6 @@ ul {
     width: 100%;
 }
 
-/* Hide the images by default */
 .mySlides {
     display: none;
     border: 1px solid #eeeeee;
@@ -152,7 +44,6 @@ ul {
     max-width: 300px;
 }
 
-/* Add a pointer when hovering over the thumbnail images */
 .cursor {
     cursor: pointer;
 }
@@ -174,7 +65,6 @@ ul {
     -webkit-user-select: none;
 }
 
-/* Position the "next button" to the right */
 .next {
     right: 0;
     border-radius: 3px 0 0 3px;
@@ -184,7 +74,6 @@ ul {
     left: 0;
 }
 
-/* On hover, add a black background color with a little bit see-through */
 .prev:hover,
 .next:hover {
     background-color: rgba(0, 0, 0, 0.8);
@@ -222,7 +111,7 @@ ul {
 .demo:hover {
     opacity: 1;
 }
-
+/* purchase product */
 .purchase-product ul {
     list-style-type: hiragana;
     padding-left: 30px;
@@ -243,11 +132,15 @@ ul {
 
 .purchase-product-button button {
     width: 100%;
-    border-radius: 0px;
+    border-radius: 0;
 }
 
 .detail-product li {
     padding: 15px 0;
     border-bottom: 1px solid #eeeeee;
     border-top: 1px solid #eeeeee;
+}
+.zoomContainer{
+    width: 0 !important;
+    height: 0 !important;
 }

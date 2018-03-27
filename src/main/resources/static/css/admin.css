@@ -1,0 +1,40 @@
+#preview-product-img {
+    max-width: 200px;
+    max-height: 200px;
+    position: relative;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.img-select-block {
+    position: relative;
+}
+
+#input-select-img-product {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.margin-bottom-15 {
+    margin-bottom: 15px;
+}
+
+.add-product{
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.03);
+    margin-bottom: 20px;
+}
+
+/*--------Total product list-------------*/
+.total-product{
+    padding-left: 15px;
+}
+.total-product__container{
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.03);
+}

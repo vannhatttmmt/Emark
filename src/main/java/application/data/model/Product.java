@@ -7,7 +7,7 @@ import java.util.Date;
 public class Product {
 
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "product_id")
+    @Column(name = "productid")
     @Id
     private int id;
 
@@ -16,6 +16,9 @@ public class Product {
 
     @Column(name = "image")
     private String image;
+
+    @Column(name = "price")
+    private String price;
 
     @Column(name = "short_desc")
     private String shortDesc;
@@ -45,6 +48,14 @@ public class Product {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public String getShortDesc() {

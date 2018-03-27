@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/vendor/fontawesome/fontawesome.css}">
+    <link rel="stylesheet" th:href="@{/vendor/animate/animate.min.css}">
+    <link rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/product.css}">
+</head>
+<body>
+<div th:replace="fragments/sidenav :: sidenav_frag (vm=${vm})"></div>
+<div th:replace="fragments/navbar :: navbar_frag (vm = ${vm})"></div>
+<div id="main">
+    <section class="body-content clearfix">
+        <div class="link-list">
+            <ul>
+                <li>Home ></li>
+                <li>Product ></li>
+                <li>Phone ></li>
+                <li>Apple ></li>
+                <li>Iphone</li>
+            </ul>
+        </div>
+        <div class="image-slide col-md-5">
+            <div class="img-slide-wrapper">
+
+                <!-- Full-width images with number text -->
+                <div class="mySlides">
+                    <div class="numbertext">1 / 4</div>
+                    <img id="zoom_01"
+                         th:src="@{/img/small/iphone-x.jpg}"
+                         th:attr="data-zoom-image=@{/img/large/iphone-x.jpg}">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">2 / 4</div>
+                    <img id="zoom_02" th:src="@{/img/small/iphone-8.jpg}"
+                         th:attr="data-zoom-image=@{/img/large/iphone-8.jpg}">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">3 / 4</div>
+                    <img id="zoom_03" th:src="@{/img/small/iphone-7.jpg}"
+                         th:attr="data-zoom-image=@{/img/large/iphone-7.png}">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">4 / 4</div>
+                    <img id="zoom_04" th:src="@{/img/small/iphone-6s.jpg}"
+                         th:attr="data-zoom-image=@{/img/large/iphone-6s.jpg}">
+                </div>
+
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                <!-- Thumbnail images -->
+                <div class="row">
+                    <div class="column">
+                        <img class="demo cursor"
+                             th:src="@{/img/small/iphone-x.jpg}"
+                             style="width:100%" onclick="currentSlide(1)">
+                    </div>
+                    <div class="column">
+                        <img class="demo cursor"
+                             th:src="@{/img/small/iphone-8.jpg}"
+                             style="width:100%" onclick="currentSlide(2)">
+                    </div>
+                    <div class="column">
+                        <img class="demo cursor"
+                             th:src="@{/img/small/iphone-7.jpg}"
+                             style="width:100%" onclick="currentSlide(3)">
+                    </div>
+                    <div class="column">
+                        <img class="demo cursor"
+                             th:src="@{/img/small/iphone-6s.jpg}"
+                             style="width:100%" onclick="currentSlide(4)">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="purchase-product col-md-4">
+            <div class="purchase-product-sale-policy">
+                <h1>Price: 24.550.000 VND</h1>
+                <ul>
+                    <li>Sale up to 50%</li>
+                    <li>Balo gift bonus</li>
+                    <li>Backup charger bonus</li>
+                    <li>10% Coupon when buy on REDmarket</li>
+                    <li>Soccer ticket...</li>
+                    <li>Free sale</li>
+                    <li>More and more...</li>
+                </ul>
+            </div>
+            <div class="purchase-product-button">
+                <button type="button" class="btn btn-danger btn-lg">Add to cart</button>
+            </div>
+        </div>
+
+        <div class="detail-product col-md-3">
+            <h1>Details</h1>
+            <ul>
+                <li>Display: LED-backlit IPS LCD, 5.5", Retina HD</li>
+                <li>Operating System: IOS 11</li>
+                <li>Camera: 12 MP with OIS</li>
+                <li>CPU: Apple A11 Bionic</li>
+                <li>RAM: 3GB</li>
+                <li>ROM: 128GB</li>
+                <li>Battery: 2800mAh</li>
+            </ul>
+        </div>
+
+        <div class="description-product col-md-8">
+            <p>lorem</p>
+        </div>
+
+        <div class="same-product col-md-4">
+            <p>dd</p>
+        </div>
+    </section>
+
+    <footer class="footer clearfix">
+        <div class="footer-content clearfix">
+            <div class="footer-top clearfix">
+                <div class="company-name col-md-3">
+                    <div class="footer-inner">
+                        <h3>COMPANY NAME</h3>
+                        <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit
+                            amet, consectetur adipisicing elit</p>
+                    </div>
+                </div>
+                <div class="product-extent col-md-3">
+                    <div class="footer-inner">
+                        <h3>PRODUCTS</h3>
+                        <ul>
+                            <li><a href="#">Điện thoại di động</a></li>
+                            <li><a href="#">Máy tính bảng</a></li>
+                            <li><a href="#">Máy tính xách tay</a></li>
+                            <li><a href="#">Phụ kiện di động</a></li>
+                            <li><a href="#">Máy tính cá nhân</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="useful-link col-md-3">
+                    <div class="footer-inner">
+                        <h3>USEFUL LINKS</h3>
+                        <ul>
+                            <li><a href="#">Tài khoản của bạn</a></li>
+                            <li><a href="#">Trở thành đối tác</a></li>
+                            <li><a href="#">Tỉ lệ & chất lượng feedback</a></li>
+                            <li><a href="#">Trợ giúp</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="contact col-md-3">
+                    <div class="footer-inner">
+                        <h3>CONTACT</h3>
+                        <ul>
+                            <li><a href="#"><i class="far fa-address-book"></i> 144 Xuân Thủy, Cầu Giấy, Hà Nội</a></li>
+                            <li><a href="#"><i class="far fa-envelope"></i> vannhatttmmt@gmail.com</a></li>
+                            <li><a href="tel:+841674546192"><i class="fas fa-phone-square"></i> +84 167 4546 192</a>
+                            </li>
+                            <li><a href="#"><i class="fas fa-fax"></i> +24 167 995 23</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="footer-bottom">
+                <div class="copyright col-md-3">
+                    <p>Copyright <i class="far fa-copyright"></i> Emark Inc. All rights reserved</p>
+                </div>
+                <div class="policy col-md-4">
+                    <a href="">Privacy Policy</a>
+                    <a href="">Terms of Use</a>
+                    <a href="">Legal</a>
+                    <a href="">Site Map</a>
+                </div>
+                <div class="social-network col-md-5">
+                    <a href=""><i class="fab fa-facebook"></i></a>
+                    <a href=""><i class="fab fa-twitter"></i></a>
+                    <a href=""><i class="fab fa-google-plus"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--login form-->
+    <div id="modal">
+        <div class="cont_centrar">
+            <div class="cont_login">
+                <form action="">
+                    <div class="cont_tabs_login">
+                        <ul class="ul_tabs clearfix">
+                            <li class="active"><a href="#" onclick="sign_in()">SIGN IN</a>
+                                <span class="linea_bajo_nom"></span>
+                            </li>
+                            <li><a href="#up" onclick="sign_up()">SIGN UP</a><span class="linea_bajo_nom"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="cont_text_inputs">
+                        <input type="text" class="input_form_sign " placeholder="NAME" name="name_us"/>
+                        <input type="text" class="input_form_sign d_block active_inp" placeholder="EMAIL"
+                               name="emauil_us"/>
+                        <input type="password" class="input_form_sign d_block  active_inp" placeholder="PASSWORD"
+                               name="pass_us"/>
+                        <input type="password" class="input_form_sign" placeholder="CONFIRM PASSWORD"
+                               name="conf_pass_us"/>
+                        <a href="#" class="link_forgot_pass d_block">Forgot Password ?</a>
+                        <div class="terms_and_cons d_none">
+                            <p><input class="term-check" type="checkbox" name="terms_and_cons"/> <label>Accept Terms and
+                                Conditions.</label></p>
+                        </div>
+                    </div>
+                    <div class="cont_btn">
+                        <button class="btn_sign">SIGN IN</button>
+                    </div>
+                </form>
+                <span id="cont_close">x</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/vendor/zoomelevate/jquery.elevatezoom.js}"></script>
+<script th:src="@{/js/login.js}"></script>
+<script th:src="@{/js/sideNav.js}"></script>
+<script th:src="@{/js/animate.js}"></script>
+<script th:src="@{/js/productImgSlide.js}"></script>
+<script th:src="@{/js/productImgSlideZoom.js}"></script>
+</body>
+</html>

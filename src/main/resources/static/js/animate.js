@@ -1,3 +1,3 @@
 $(document).ready(function () {
-    $("body").addClass("animated fadeInRight")
+    $("body").addClass("animated fadeInRightBig")
 });

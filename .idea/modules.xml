@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/REDmarket.iml" filepath="$PROJECT_DIR$/.idea/modules/REDmarket.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/REDmarket_main.iml" filepath="$PROJECT_DIR$/.idea/modules/REDmarket_main.iml" group="REDmarket" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/REDmarket_test.iml" filepath="$PROJECT_DIR$/.idea/modules/REDmarket_test.iml" group="REDmarket" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Emark.iml" filepath="$PROJECT_DIR$/.idea/modules/Emark.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Emark_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Emark_main.iml" group="Emark" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Emark_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Emark_test.iml" group="Emark" />
     </modules>
   </component>
 </project>

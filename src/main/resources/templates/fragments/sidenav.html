@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div th:fragment="sidenav_frag (vm)">
+        <div id="mySidenav" class="sidenav">
+            <div class="sidenav-left">
+                <ul>
+                    <li><a href=""><i class="fas fa-home"></i></a></li>
+                    <li><a href=""><i class="fas fa-mobile-alt"></i></a></li>
+                    <li><a href=""><i class="fas fa-tablet-alt"></i></a></li>
+                    <li><a href=""><i class="fas fa-laptop"></i></a></li>
+                    <li><a href=""><i class="fas fa-desktop"></i></a></li>
+                    <li><a href=""><i class="fab fa-yelp"></i></a></li>
+                </ul>
+            </div>
+            <div class="sidenav-right">
+                <a href="javascript:void(0)" id="close-sidenav-btn" onclick="closeNav()"><i
+                        class="fas fa-angle-double-left"></i></a>
+
+                <div class="col-md-12 clearfix"><a class="sidenav-right__home" style="padding: 35px 0" href="#"><i
+                        style="color: #ffffff"
+                        class="fas fa-home"></i><span
+                        style="color: #ffffff">Trang chủ</span></a></div>
+                <div class="col-md-12 clearfix">
+                    <div class="dropdown-btn"><i class="fas fa-mobile-alt"></i><span>Điện thoại</span>
+                        <i class="fa fa-caret-down"></i>
+                    </div>
+                    <div class="dropdown-container">
+                        <div class="col-md-6">
+                            <h4>Hãng</h4>
+                            <ul>
+                                <li><a href="#">Apple</a></li>
+                                <li><a href="#">Samsung</a></li>
+                                <li><a href="#">Oppo</a></li>
+                                <li><a href="#">Sony</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Phân khúc</h4>
+                            <ul>
+                                <li><a href="#">Cao cấp</a></li>
+                                <li><a href="#">Tầm trung</a></li>
+                                <li><a href="#">Giá rẻ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 clearfix">
+                    <div class="dropdown-btn"><i class="fas fa-tablet-alt"></i><span>Tablet</span>
+                        <i class="fa fa-caret-down"></i>
+                    </div>
+                    <div class="dropdown-container">
+                        <div class="col-md-6">
+                            <h4>Hãng</h4>
+                            <ul>
+                                <li><a href="#">Apple</a></li>
+                                <li><a href="#">Samsung</a></li>
+                                <li><a href="#">Oppo</a></li>
+                                <li><a href="#">Sony</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Phân khúc</h4>
+                            <ul>
+                                <li><a href="#">Cao cấp</a></li>
+                                <li><a href="#">Tầm trung</a></li>
+                                <li><a href="#">Giá rẻ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 clearfix">
+                    <div class="dropdown-btn"><i class="fas fa-laptop"></i><span>Laptop</span>
+                        <i class="fa fa-caret-down"></i>
+                    </div>
+                    <div class="dropdown-container">
+                        <div class="col-md-6">
+                            <h4>Hãng</h4>
+                            <ul>
+                                <li><a href="#">Apple</a></li>
+                                <li><a href="#">Samsung</a></li>
+                                <li><a href="#">Oppo</a></li>
+                                <li><a href="#">Sony</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Phân khúc</h4>
+                            <ul>
+                                <li><a href="#">Cao cấp</a></li>
+                                <li><a href="#">Tầm trung</a></li>
+                                <li><a href="#">Giá rẻ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 clearfix">
+                    <div class="dropdown-btn"><i class="fab fa-yelp"></i><span>Phụ kiện</span>
+                        <i class="fa fa-caret-down"></i>
+                    </div>
+                    <div class="dropdown-container">
+                        <div class="col-md-6">
+                            <h4>Hãng</h4>
+                            <ul>
+                                <li><a href="#">Apple</a></li>
+                                <li><a href="#">Samsung</a></li>
+                                <li><a href="#">Oppo</a></li>
+                                <li><a href="#">Sony</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Phân khúc</h4>
+                            <ul>
+                                <li><a href="#">Cao cấp</a></li>
+                                <li><a href="#">Tầm trung</a></li>
+                                <li><a href="#">Giá rẻ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
