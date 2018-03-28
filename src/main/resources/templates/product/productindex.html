@@ -31,8 +31,8 @@
                 <div class="mySlides">
                     <div class="numbertext">1 / 4</div>
                     <img id="zoom_01"
-                         th:src="@{/img/small/iphone-x.jpg}"
-                         th:attr="data-zoom-image=@{/img/large/iphone-x.jpg}">
+                         th:src="${vm.getProductDetails().getImage()}"
+                         th:attr="data-zoom-image=${vm.getProductDetails().getImage()}">
                 </div>
 
                 <div class="mySlides">
@@ -85,7 +85,7 @@
 
         <div class="purchase-product col-md-4">
             <div class="purchase-product-sale-policy">
-                <h1>Price: 24.550.000 VND</h1>
+                <h1 th:text="'Price: '+${vm.getProductDetails().getPrice()}"></h1>
                 <ul>
                     <li>Sale up to 50%</li>
                     <li>Balo gift bonus</li>

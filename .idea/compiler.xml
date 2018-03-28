@@ -2,8 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="Emark_main" target="1.8" />
-      <module name="Emark_test" target="1.8" />
+      <module name="VNmark_main" target="1.8" />
+      <module name="VNmark_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -9,6 +9,7 @@ public class ProductDetailModel {
     private int id;
     private String name;
     private String image;
+    private String price;
     private String shortDesc;
 
     @JsonSerialize(using = CustomDateSerializer.class)
@@ -36,6 +37,14 @@ public class ProductDetailModel {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public String getShortDesc() {

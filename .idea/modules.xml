@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Emark.iml" filepath="$PROJECT_DIR$/.idea/modules/Emark.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Emark_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Emark_main.iml" group="Emark" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Emark_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Emark_test.iml" group="Emark" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/VNmark.iml" filepath="$PROJECT_DIR$/.idea/modules/VNmark.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../VNmark/.idea/modules/VNmark_main.iml" filepath="$PROJECT_DIR$/../VNmark/.idea/modules/VNmark_main.iml" group="VNmark" />
+      <module fileurl="file://$PROJECT_DIR$/../VNmark/.idea/modules/VNmark_test.iml" filepath="$PROJECT_DIR$/../VNmark/.idea/modules/VNmark_test.iml" group="VNmark" />
     </modules>
   </component>
 </project>

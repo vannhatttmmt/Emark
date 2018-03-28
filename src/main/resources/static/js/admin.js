@@ -1,6 +1,3 @@
-/**
- * Created by ManhNguyen on 3/1/18.
- */
 $(document).ready(function () {
     var dataProduct = {};
 
@@ -13,14 +10,6 @@ $(document).ready(function () {
             reader.readAsDataURL(input.files[0]);
         }
     }
-
-    $("#modal-create-product").on('shown', function() {
-        dataProduct = {};
-        $('#preview-product-img').attr('src', '/img/default-img.jpg');
-        $('#input-product-name').val("");
-        $('#input-product-price').val("");
-        $('#input-product-desc').val("");
-    });
 
     $("#input-select-img-product").change(function() {
         readURL(this);
@@ -42,24 +31,64 @@ $(document).ready(function () {
 
     $('#datepicker-created-date-product').datetimepicker();
 
+    $("#btn-new-product").on("click", function () {
+        dataProduct = {};
+        $('#preview-product-img').attr('src', '/img/default-img.jpg');
+        $('#input-product-name').val("");
+        $('#input-product-desc').val("");
+        $('#input-product-price').val("");
+        $("#modal-create-product").modal();
+    });
+
+    $(".btn-edit").on("click", function () {
+        var pdInfo = $(this).data("product");
+        NProgress.start();
+        axios.get("/api/product/detail/" + pdInfo).then(function(res){
+            NProgress.done();
+            if(res.data.success) {
+                dataProduct.id = res.data.data.id;
+                dataProduct.image = res.data.data.image;
+                $("#input-product-name").val(res.data.data.name);
+                $("#input-product-price").val(res.data.data.price);
+                $("#input-product-desc").val(res.data.data.shortDesc);
+                $('#preview-product-img').attr('src', dataProduct.image);
+                var createdDate = moment(res.data.data.createdDate, "YYYY-MM-DD HH:mm:ss");
+                $('#datepicker-created-date-product').data("DateTimePicker").date(createdDate);
+                $("#modal-create-product").modal();
+            }
+        }, function(err){
+            NProgress.done();
+        })
+    });
+
     $(".btn-save-product").on("click", function () {
-        // if($("#input-product-name").val() === "" || $("#input-product-desc").val() === "" || dataProduct.image === undefined) {
-        //     swal(
-        //         'Error',
-        //         'You need to fill all values',
-        //         'error'
-        //     );
-        //     return;
-        // }
+        if($("#input-product-name").val() === "" || $("#input-product-desc").val() === "" ||
+            $("#input-product-price").val() === "" || dataProduct.image === undefined) {
+            swal(
+                'Error',
+                'You need to fill all values',
+                'error'
+            );
+            return;
+        }
+        var createdDate = null;
+        if($("#datepicker-created-date-product").data("DateTimePicker").date()) {
+            createdDate = $("#datepicker-created-date-product").data("DateTimePicker").date().format("YYYY-MM-DD HH:mm:ss");
+        }
+
         dataProduct.name = $('#input-product-name').val();
         dataProduct.price = $('#input-product-price').val();
         dataProduct.shortDesc = $('#input-product-desc').val();
-        dataProduct.createdDate = $("#datepicker-created-date-product").data("DateTimePicker").date().format("YYYY-MM-DD HH:mm:ss");
+        dataProduct.createdDate = createdDate;
         NProgress.start();
 
-        axios.post("/api/product/create-product", dataProduct).then(function(res){
+        var linkPost = "/api/product/create-product";
+        if(dataProduct.id) {
+            linkPost = "/api/product/update-product/" + dataProduct.id;
+        }
+
+        axios.post(linkPost, dataProduct).then(function(res){
             NProgress.done();
-            console.log(res)
             if(res.data.success) {
                 swal(
                     'Good job!',
@@ -84,4 +113,48 @@ $(document).ready(function () {
             );
         })
     });
+
+    // ----------------------Delete Product-----------------------
+    $(".btn-delete").on("click", function () {
+        var pdInfo = $(this).data("product");
+        swal({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true
+        }).then(function(result) {
+            if (result.value) {
+                NProgress.start();
+                axios.post("/api/product/delete-product", {
+                    productId: pdInfo
+                }).then(function(res){
+                    NProgress.done();
+                    if(res.data.success) {
+                        swal(
+                            'Good job!',
+                            res.data.message,
+                            'success'
+                        ).then(function() {
+                            location.reload();
+                        });
+                    } else {
+                        swal(
+                            'Error',
+                            res.data.message,
+                            'error'
+                        );
+                    }
+                }, function(err){
+                    NProgress.done();
+                    swal(
+                        'Error',
+                        'Some error when saving product',
+                        'error'
+                    );
+                })
+            }
+        })
+    });
+
+
 });

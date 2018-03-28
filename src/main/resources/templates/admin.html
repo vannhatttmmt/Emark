@@ -23,10 +23,10 @@
             <section>
                 <h1>Admin - products page</h1>
                 <div class="label-success" style="padding: 5px 15px; color: #fff;">
-                    <span th:text="${total}"></span>
+                    <span th:text="${vm.getMessageTotalProducts()}"></span>
                 </div>
                 <p style="margin-top: 10px;">
-                    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-create-product">Insert new product</button>
+                    <button class="btn btn-primary" id="btn-new-product">Insert new product</button>
                 </p>
             </section>
         </div>
@@ -45,13 +45,18 @@
                    </tr>
                    </thead>
                    <tbody>
-                   <tr th:each="product: ${vm.getListTotalProducts()}">
+                   <tr th:each="product: ${vm.getListPagingProducts()}">
                        <td>
                            <p th:text="${product.getId()}"></p>
                        </td>
                        <td>
-                           <img style="max-width: 100px" th:src="${product.getImage()}">
+                           <a th:href="@{'/product/detail/' + ${product.getId()}}">
+                               <img style="max-width: 100px" th:src="${product.getImage()}">
+                           </a>
                            <p th:text="${product.getName()}"></p>
+                       </td>
+                       <td>
+                           <p th:text="${product.getPrice()}"></p>
                        </td>
                        <td>
                            <p th:text="${product.getShortDesc()}"></p>
@@ -60,13 +65,23 @@
                            <p th:text="${product.getCreatedDate()}"></p>
                        </td>
                        <td>
-                           <button type="button" class="btn btn-success">Edit</button>
-                           <button type="button" class="btn btn-danger">Delete</button>
+                           <button type="button" class="btn btn-success btn-edit" th:attr="data-product=${product.getId()}">Edit</button>
+                           <button type="button" class="btn btn-danger btn-delete" th:attr="data-product=${product.getId()}">Delete</button>
                        </td>
                    </tr>
                    </tbody>
                </table>
            </div>
+           <ul class="pagination">
+               <th:block th:each="indexPage : ${#numbers.sequence(1, vm.getTotalPagingItems(), 1)}">
+                   <li class="active" th:if="${indexPage == vm.getCurrentPage()}">
+                       <a th:href="@{'/admin?pageNumber=' + ${indexPage}}"><span th:text="${indexPage}"></span></a>
+                   </li>
+                   <li th:unless="${indexPage == vm.getCurrentPage()}">
+                       <a th:href="@{'/admin?pageNumber=' + ${indexPage}}"><span th:text="${indexPage}"></span></a>
+                   </li>
+               </th:block>
+           </ul>
        </div>
     </div>
 
